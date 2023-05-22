@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "anatexis.github.io"
+  site-url: "https://anatexis.github.io/anatexis.github.io"
+  description: "My personal website"
+  repo-branch: main
+  repo-url: "https://github.com/anatexis/anatexis.github.io"
