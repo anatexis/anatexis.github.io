@@ -21,7 +21,7 @@ website:
       - icon: github
         href: "https://github.com/anatexis/anatexis.github.io"
       - icon: twitter
-        href: https://twitter.com/anatexis
+        href: "https://twitter.com/_anatexis_"
         aria-label: Christoph K. Twitter
   sidebar:
     style: floating
