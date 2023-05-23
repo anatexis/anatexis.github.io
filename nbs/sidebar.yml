@@ -3,6 +3,11 @@ website:
     contents:
       - index.qmd
       - index.ipynb
+      - nbdev.yml
+      - profile_small_CK.jpg
+      - settings.ini
+      - sidebar.yml
+      - styles.css
       - section: blog
         contents:
           - blog/index.qmd
@@ -11,3 +16,10 @@ website:
               - section: 2013-01-21-Teegedanken
                 contents:
                   - blog/posts/2013-01-21-Teegedanken/index.qmd
+      - section: blog
+        contents:
+          - section: posts
+            contents:
+              - section: 2013-01-21-Teegedanken
+                contents:
+                  - blog/posts/2013-01-21-Teegedanken/20230415_161447_teeartig.jpg
