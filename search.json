@@ -14,10 +14,38 @@
     "text": "Ich trank grünen Tee, so konzentriert dass ich dachte ich müsste jeden Moment anfangen nur mehr das grüne Spektrum des Lichtes zu sehen. Oder wenigstens grüne Gedanken bekommen, oder grüne Hände. Aber nichts geschah. Der Tee war auch gar nicht mehr grün, er war braun. Zumindest im Licht der Lampe die sich schüchtern hinter lauter Kram auf meinem Schreibtisch versteckt hatte. Meine Hände wirkten gelb. Der Tee war so konzentriert, dass ich mich nicht mehr konzentrieren konnte. Ich wusste gar nicht ob Grüner Tee auch Teein oder so beinhaltete aber das war mir egal, ich trank diesen Tee mit der braunen Farbe und dem Minzgeschmack mit viel Zucker. Ich versuchte mich von meiner Abgelenktheit abzulenken, aber das funktionierte leider nicht. Zuviel Zucker. Oder Tee. Oder gezuckerter Tee. Meine Hände erforschten mein Gesicht als meine Augen es aufgaben meine Hände zu erforschen. Ich schloss sie und bemerkte wie meine Hände vorsichtig die Brille von meiner Nase zogen und irgendwo nach links legten. Oder rechts. Die Hände strichen meine Haare aus dem Gesicht, braune Haare, braun wie der Tee. Ab und zu führte eine Hand, meistens die rechte, die Tasse zu meinem Mund und ich öffnete meine Lippen und schluckte gehorsam. Die Tasse stieß an den Übergang von Stirn, Nase und den Augen, das machte sie sonst nie, wenn ich die Augen auf hatte. Normalerweise war dort meine Brille. Meine Haut fühlte sich gelb an, gelb bestrahlt. Mund auf. Schlucken. Es war schon wieder die linke Hand. Die rechte hand spürte den Nackenfalten nach die sich beim Zurücklegen des Kopfes bildeten. Die schnell wieder verschwanden. Meine rechte Hand fühlte verzogene Mundwinkel, es war der letzte Schluck Tee gewesen. Absatz, braun schmeckender Absatz, kleine Körnchen, wie Kaffee aber weich. Kein Tee mehr. Ich stellte mir vor wie sich die Hände nur fragend anschauten. Alleine nachzugießen trauten sie sich nicht. Ich lugte unter meinem linken Augenlid hervor und sah verschwommen wie sich meine Hände fragend anschauten. Dann machte ich auch das rechte Auge auf und meine Hände überreichten mir meine Brille. Ich musste blinzeln."
   },
   {
+    "objectID": "blog/posts/2023-05-23-itila-chapter-1/index.html",
+    "href": "blog/posts/2023-05-23-itila-chapter-1/index.html",
+    "title": "Chapter 1 Exercises to Information Theory, Inference and Learning Algorithms",
+    "section": "",
+    "text": "import numpy as np\nimport math\nfrom scipy.special import comb"
+  },
+  {
+    "objectID": "blog/posts/2023-05-23-itila-chapter-1/index.html#exercise-1.2",
+    "href": "blog/posts/2023-05-23-itila-chapter-1/index.html#exercise-1.2",
+    "title": "Chapter 1 Exercises to Information Theory, Inference and Learning Algorithms",
+    "section": "Exercise 1.2",
+    "text": "Exercise 1.2\n(page 7)\nShow that the error probability is reduced by the use of R3 by computing the error probability of this code for a binary symmetric channel with noise level f ."
+  },
+  {
+    "objectID": "blog/posts/2023-05-23-itila-chapter-1/index.html#answer",
+    "href": "blog/posts/2023-05-23-itila-chapter-1/index.html#answer",
+    "title": "Chapter 1 Exercises to Information Theory, Inference and Learning Algorithms",
+    "section": "Answer",
+    "text": "Answer\n\nDefinitions\nbinary symmetric channel: just two possible values (“bits”: 0and 1), the bits will be flipped with the probability of \\(f\\) (in the picture \\(p\\)): \nR3: for every bit three bits will be encoded, transmitted and then decoded: 0-&gt; 000-&gt; 0 The “majority vote decoder” will be used for decoding.1\n\n\nExplanations\nThe error probability of one bit with no error correction is just \\(f\\).\nFor the R3 the bit will be flipped when at least to bits are flipped. The probability of all three bits flipped is \\(f^{3}\\) and the probability of 2 flipped bits ist given by\n\\[P(r | f,N) = {N \\choose r} f^{r} (1-f)^{N-r} \\] with \\(N\\) = 3 and \\(r\\) = 2.\n\n\nTry it out with f=0.1\n\ndef binomial_probability(r, f, N):\n    return comb(N, r) * (f**r) * ((1-f)**(N-r))\n\n\nf3 = round(binomial_probability(3,0.1,3),3)\nf2 = round(binomial_probability(2,0.1,3),3)\nprint(f\"The probabilty of three bits flipped ({f3}) + two bits flipped ({f2}) is {f2+f3}\")\n\nThe probabilty of three bits flipped (0.001) + two bits flipped (0.027) is 0.028"
+  },
+  {
+    "objectID": "blog/posts/2023-05-23-itila-chapter-1/index.html#footnotes",
+    "href": "blog/posts/2023-05-23-itila-chapter-1/index.html#footnotes",
+    "title": "Chapter 1 Exercises to Information Theory, Inference and Learning Algorithms",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nSee page 6 of ‘Exercises to Information Theory, Inference and Learning Algorithms’↩︎"
+  },
+  {
     "objectID": "blog/index.html",
     "href": "blog/index.html",
     "title": "Blog",
     "section": "",
-    "text": "Teegedanken\n\n\n\n\n\nJust a test\n\n\n\n\n\n\nJan 21, 2013\n\n\nChristoph\n\n\n\n\n\n\nNo matching items"
+    "text": "Chapter 1 Exercises to Information Theory, Inference and Learning Algorithms\n\n\n\n\n\nJust a test\n\n\n\n\n\n\nMay 23, 2023\n\n\nChristoph Kugler, Christoph\n\n\n\n\n\n\n  \n\n\n\n\nTeegedanken\n\n\n\n\n\nJust a test\n\n\n\n\n\n\nJan 21, 2013\n\n\nChristoph Kugler, Christoph\n\n\n\n\n\n\nNo matching items"
   }
 ]
