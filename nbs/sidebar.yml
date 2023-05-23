@@ -3,6 +3,7 @@ website:
     contents:
       - index.qmd
       - index.ipynb
+      - 00_core.ipynb
       - section: blog
         contents:
           - blog/index.qmd
