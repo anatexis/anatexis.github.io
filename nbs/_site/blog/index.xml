@@ -10,7 +10,145 @@
 <atom:link href="https://anatexis.github.io/blog/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.3.353</generator>
-<lastBuildDate>Sun, 20 Jan 2013 23:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 22 May 2023 22:00:00 GMT</lastBuildDate>
+<item>
+  <title>Chapter 1 Exercises to Information Theory, Inference and Learning Algorithms</title>
+  <dc:creator>Christoph Kugler</dc:creator>
+  <dc:creator>Christoph </dc:creator>
+  <link>https://anatexis.github.io/blog/posts/2023-05-23-itila-chapter-1/index.html</link>
+  <description><![CDATA[ 
+
+
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> np</span>
+<span id="cb1-2"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> math</span>
+<span id="cb1-3"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> scipy.special <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> comb</span></code></pre></div>
+</div>
+<section id="exercise-1.2" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1.2">Exercise 1.2</h2>
+<p>(page 7)</p>
+<p>Show that the error probability is reduced by the use of R<sub>3</sub> by computing the error probability of this code for a binary symmetric channel with noise level f .</p>
+</section>
+<section id="answer" class="level2">
+<h2 class="anchored" data-anchor-id="answer">Answer</h2>
+<section id="definitions" class="level3">
+<h3 class="anchored" data-anchor-id="definitions">Definitions</h3>
+<p><strong>binary symmetric channel</strong>: just two possible values (“bits”: <code>0</code>and <code>1</code>), the bits will be flipped with the probability of <img src="https://latex.codecogs.com/png.latex?f"> (in the picture <img src="https://latex.codecogs.com/png.latex?p">): <img src="https://anatexis.github.io/blog/posts/2023-05-23-itila-chapter-1/Binary_symmetric_channel.svg" class="img-fluid" alt="binary symmetric channel"></p>
+<p><strong>R<sub>3</sub></strong>: for every bit three bits will be encoded, transmitted and then decoded: <code>0</code>-&gt; <code>000</code>-&gt; <code>0</code> The “majority vote decoder” will be used for decoding.<sup>1</sup></p>
+</section>
+<section id="explanations" class="level3">
+<h3 class="anchored" data-anchor-id="explanations">Explanations</h3>
+<p>The error probability of one bit with no error correction is just <img src="https://latex.codecogs.com/png.latex?f">.</p>
+<p>For the R<sub>3</sub> the bit will be flipped when at least to bits are flipped. The probability of all three bits flipped is <img src="https://latex.codecogs.com/png.latex?f%5E%7B3%7D"> and the probability of 2 flipped bits ist given by</p>
+<p><img src="https://latex.codecogs.com/png.latex?P(r%20%7C%20f,N)%20=%20%7BN%20%5Cchoose%20r%7D%20f%5E%7Br%7D%20(1-f)%5E%7BN-r%7D%20"> with <img src="https://latex.codecogs.com/png.latex?N"> = 3 and <img src="https://latex.codecogs.com/png.latex?r"> = 2.</p>
+</section>
+<section id="try-it-out-with-f0.1" class="level3">
+<h3 class="anchored" data-anchor-id="try-it-out-with-f0.1">Try it out with f=0.1</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">def</span> binomial_probability(r, f, N):</span>
+<span id="cb2-2">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> comb(N, r) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> (f<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">**</span>r) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> ((<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>f)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">**</span>(N<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>r))</span></code></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">f3 <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">round</span>(binomial_probability(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.1</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>),<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>)</span>
+<span id="cb3-2">f2 <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">round</span>(binomial_probability(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>,<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.1</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>),<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>)</span>
+<span id="cb3-3"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"The probabilty of three bits flipped (</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>f3<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">) + two bits flipped (</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>f2<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">) is </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>f2<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span>f3<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The probabilty of three bits flipped (0.001) + two bits flipped (0.027) is 0.028</code></pre>
+</div>
+</div>
+
+
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>See page 6 of ‘Exercises to Information Theory, Inference and Learning Algorithms’↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <guid>https://anatexis.github.io/blog/posts/2023-05-23-itila-chapter-1/index.html</guid>
+  <pubDate>Mon, 22 May 2023 22:00:00 GMT</pubDate>
+  <media:content url="https://anatexis.github.io/blog/posts/2023-05-23-itila-chapter-1/Binary_symmetric_channel.svg" medium="image" type="image/svg+xml"/>
+</item>
 <item>
   <title>Teegedanken</title>
   <dc:creator>Christoph Kugler</dc:creator>
