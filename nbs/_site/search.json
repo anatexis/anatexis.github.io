@@ -1,12 +1,5 @@
 [
   {
-    "objectID": "00_core.html",
-    "href": "00_core.html",
-    "title": "core",
-    "section": "",
-    "text": "Fill in a module description here\n\n::: {.cell 0=‘h’ 1=‘i’ 2=‘d’ 3=‘e’}\nfrom nbdev.showdoc import *\n:::\n::: {.cell 0=‘e’ 1=‘x’ 2=‘p’ 3=‘o’ 4=‘r’ 5=‘t’}\ndef foo(): pass\n:::\n::: {.cell 0=‘h’ 1=‘i’ 2=‘d’ 3=‘e’}\nimport nbdev; nbdev.nbdev_export()\n:::"
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Hi, I’m Christoph Kugler",
