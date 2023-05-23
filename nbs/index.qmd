@@ -1,0 +1,37 @@
+---
+page-layout: full
+---
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+![](profile_small_CK.jpg)
+:::
+
+::: {.g-col-12 .g-col-md-6}
+# Hi, I'm Christoph Kugler
+I'm curious about the world, and try to post here what I find intresting.
+
+To get started, you can check out my most popular content below. You can find me on [Twitter](https://twitter.com/_anatexis_) or
+[GitHub](https://github.com/anatexis).
+:::
+
+::: {.g-col-12 .g-col-md-5 .g-start-md-2}
+# Data Visualization
+
+- Blog post 1
+- Blog post 2
+- Blog post 3
+:::
+
+:::
+
+
+::: {.g-col-12 .g-col-md-5}
+# Stats/ML
+
+- This div...
+- ...required...
+- ...no offset (it's still in the first row)
+
+:::

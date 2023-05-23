@@ -1,6 +1,7 @@
 website:
   sidebar:
     contents:
+      - index.qmd
       - index.ipynb
       - 00_core.ipynb
       - section: blog
